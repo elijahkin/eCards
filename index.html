@@ -1,18 +1,25 @@
 <html>
     <head>
-        <title>Postcard Test</title>
+        <title>eCards</title>
         <script src="postcard.js"></script>
+        <link rel="stylesheet" type="text/css" href="postcard.css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet"/>
     </head>
     <body>
-        <canvas id="canvas" width="500" height="350" style="border:1px solid #000000;"></canvas>
-        <div id="canvasControls">
-            <input type="color" id="color" value="#FFFFFF" oninput="updateCanvas()"/>
-            <input type="text" id="text" oninput="updateCanvas()"/>
-            <input type="button" value="Clear Canvas" onclick="clearCanvas()"/>
-        </div>
-        <div id="textControls">
-            <label for="textSize">Text Size</label>
-            <input type="range" id="textSize" name="textSize" min="1" value="30" max="100" oninput="updateCanvas()">
+        <div class="container">
+            <h1>eCards</h1>
+            <canvas id="canvas" width="500" height="350"></canvas>
+            <div id="canvasControls">
+                <label for="textControls"><b>Canvas Controls</b></label>
+                <input type="button" value="Clear Canvas" onclick="clearCanvas()"/>
+                <input type="color" id="canvasColor" value="#FFFFFF" oninput="updateCanvas()"/>
+            </div>
+            <div id="textControls">
+                <label for="textControls"><b>Text Controls</b></label>
+                <input type="color" id="textColor" value="#000000" oninput="updateCanvas()"/>
+                <input type="range" id="textSize" name="textSize" min="1" value="30" max="100" oninput="updateCanvas()">
+                <input type="text" id="text" oninput="updateCanvas()"/>
+            </div>
         </div>
     </body>
 </html>
