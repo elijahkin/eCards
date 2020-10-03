@@ -26,7 +26,6 @@ function updateCanvas() {
             fillText(ctx, text.value, parseInt(textSize.value), 2*parseInt(textSize.value));
         }
     }
-
 }
 
 function clearCanvas() {
@@ -40,12 +39,13 @@ function fillText(ctx, text, x, y) {
     var lineHeight = ctx.measureText("M").width * 1.5;
     var lines = text.split("\n");
     for (var i = 0; i < lines.length; ++i) {
-        if (i == 1) {
-            ctx.fillText("    "+lines[i], x, y);
-        }
-        else {
-            ctx.fillText(lines[i], x, y);
-        }
+        ctx.fillText(lines[i], x, y);
         y += lineHeight;
     }
 }
+
+
+save = function(el) {
+    var image = canvas.toDataURL("image/png");
+    el.href = image;
+  };

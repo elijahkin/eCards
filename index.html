@@ -4,6 +4,7 @@
         <script src="postcard.js"></script>
         <link rel="stylesheet" type="text/css" href="postcard.css"/>
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
     </head>
     <body>
         <div class="container">
@@ -19,14 +20,20 @@
                 <label for="textControls"><b>Text Controls</b></label>
                 <input type="color" id="textColor" value="#000000" oninput="updateCanvas()"/>
                 <input type="range" id="textSize" name="textSize" min="1" value="30" max="100" oninput="updateCanvas()">
-                <select id="textFont" name="textFont">
+                <select id="textFont" name="textFont" oninput="updateCanvas()">
                     <option value="Arial">Arial</option>
                     <option value="Comic Sans MS">Comic Sans</option>
                     <option value="Courier">Courier</option>
                     <option value="Impact">Impact</option>
+                    <option value="Pinyon Script">Pinyon Script</option>
                   </select>
             </div>
-            <textarea id="text" wrap="hard" cols="60" rows="5" placeholder="Type your text here" oninput="updateCanvas()"></textarea>
+            <div>
+                <textarea id="text" wrap="hard" cols="60" rows="5" placeholder="Type your text here..." oninput="updateCanvas()"></textarea>
+            </div>
+            <div>
+                <a id="save" download="postcard.png" href="" onclick="save(this);">Save my postcard!</a>
+            </div>
         </div>
     </body>
 </html>
