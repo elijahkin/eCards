@@ -7,11 +7,12 @@
     </head>
     <body>
         <div class="container">
-            <h1>eCards</h1>
+            <h1>eCards Postcard Builder</h1>
             <canvas id="canvas" width="500" height="350"></canvas>
             <div id="canvasControls">
                 <label for="textControls"><b>Canvas Controls</b></label>
-                <input type="button" value="Clear Canvas" onclick="clearCanvas()"/>
+                <input type="button" value="Clear" onclick="clearCanvas()"/>
+                <input type="file" id="canvasImage" accept = "image/*" oninput="updateCanvas()"/>
                 <input type="color" id="canvasColor" value="#FFFFFF" oninput="updateCanvas()"/>
             </div>
             <div id="textControls">
@@ -19,7 +20,7 @@
                 <input type="color" id="textColor" value="#000000" oninput="updateCanvas()"/>
                 <input type="range" id="textSize" name="textSize" min="1" value="30" max="100" oninput="updateCanvas()">
             </div>
-            <textarea id="text" wrap="soft" cols="60" rows="5" placeholder="Type your text here" oninput="updateCanvas()"></textarea>
+            <textarea id="text" wrap="hard" cols="60" rows="5" placeholder="Type your text here" oninput="updateCanvas()"></textarea>
         </div>
     </body>
 </html>

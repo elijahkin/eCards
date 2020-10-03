@@ -1,35 +1,50 @@
 function updateCanvas() {
-    // canvas elements
     var canvas = document.getElementById("canvas");
     var canvasColor = document.getElementById("canvasColor");
+    var canvasImage = document.getElementById("canvasImage");
     var ctx = canvas.getContext("2d");
 
-    // text elements
     var text = document.getElementById("text");
     var textColor = document.getElementById("textColor");
     var textSize = document.getElementById("textSize");
 
-    // setting background color
-    ctx.fillStyle = canvasColor.value;
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    if (canvasImage.value == "") {
+        ctx.fillStyle = canvasColor.value;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = textColor.value;
+        ctx.font = textSize.value + "px Arial";
+        fillText(ctx, text.value, parseInt(textSize.value), 2*parseInt(textSize.value));
+    }
+    else {
+        img = new Image();
+        img.src = URL.createObjectURL(canvasImage.files[0]);
+        img.onload = function() {
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = textColor.value;
+            ctx.font = textSize.value + "px Arial";
+            fillText(ctx, text.value, parseInt(textSize.value), 2*parseInt(textSize.value));
+        }
+    }
 
-    // setting text color and size
-    ctx.fillStyle = textColor.value;
-    ctx.font = textSize.value + "px Arial";
-    fillText(ctx, text.value, parseInt(textSize.value), 1.67*parseInt(textSize.value));
 }
 
 function clearCanvas() {
     var canvas = document.getElementById("canvas");
     var ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    document.getElementById('canvasImage').value = null;
 }
 
 function fillText(ctx, text, x, y) {
-    var lineHeight = ctx.measureText("M").width * 1.2;
+    var lineHeight = ctx.measureText("M").width * 1.5;
     var lines = text.split("\n");
     for (var i = 0; i < lines.length; ++i) {
-      ctx.fillText(lines[i], x, y);
-      y += lineHeight;
+        if (i == 1) {
+            ctx.fillText("    "+lines[i], x, y);
+        }
+        else {
+            ctx.fillText(lines[i], x, y);
+        }
+        y += lineHeight;
     }
-  }
+}
