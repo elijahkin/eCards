@@ -8,6 +8,7 @@ function updateCanvas() {
     var textColor = document.getElementById("textColor");
     var textSize = document.getElementById("textSize");
     var textFont = document.getElementById("textFont");
+    var dateCheck = document.getElementById("dateCheck");
 
     if (canvasImage.value == "") {
         ctx.fillStyle = canvasColor.value;
@@ -15,8 +16,10 @@ function updateCanvas() {
         ctx.fillStyle = textColor.value;
         ctx.font = textSize.value + "px " + textFont.value;
         fillText(ctx, text.value, parseInt(textSize.value), 2*parseInt(textSize.value));
-        var date = String(new Date().toLocaleDateString());
-        ctx.fillText(date, canvas.width-parseInt(textSize.value)-ctx.measureText(date).width, 2*parseInt(textSize.value));
+        if (dateCheck.checked == true) {
+            var date = String(new Date().toLocaleDateString());
+            ctx.fillText(date, canvas.width-parseInt(textSize.value)-ctx.measureText(date).width, 2*parseInt(textSize.value));
+        }
     }
     else {
         img = new Image();
@@ -26,8 +29,10 @@ function updateCanvas() {
             ctx.fillStyle = textColor.value;
             ctx.font = textSize.value + "px " + textFont.value;
             fillText(ctx, text.value, parseInt(textSize.value), 2*parseInt(textSize.value));
-            var date = String(new Date().toLocaleDateString());
-            ctx.fillText(date, canvas.width-parseInt(textSize.value)-ctx.measureText(date).width, 2*parseInt(textSize.value));
+            if (dateCheck.checked == true) {
+                var date = String(new Date().toLocaleDateString());
+                ctx.fillText(date, canvas.width-parseInt(textSize.value)-ctx.measureText(date).width, 2*parseInt(textSize.value));
+            }
         }
     }
 }

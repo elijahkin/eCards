@@ -1,9 +1,10 @@
 canvas {
     white-space: pre-wrap;
-    border: 1px solid black;
-    border-left: 2px solid black;
-    border-right: 2px solid black;
-    border-top: 2px solid black;
+    border: 3px solid #c61f26;
+    border-left: 4px solid #c61f26;
+    border-right: 4px solid #c61f26;
+    border-top: 4px solid #c61f26;
+    background-color: white;
   }
 
 body {
@@ -11,25 +12,31 @@ body {
     justify-content: center;
     align-items: center;
     font-family: "Lato", sans-serif;
+    background-color: #363765;
   }
 
 h1 {
     text-align: center;
+    color: #c61f26;
+    font-weight: bolder;
+    font-size: 45px;
 }
 
 #canvasControls {
+    color: white;
     padding: 10px;
-    border: 1px solid black;
-    border-left: 2px solid black;
-    border-right: 2px solid black;
+    border: 2px solid #c61f26;
+    border-left: 4px solid #c61f26;
+    border-right: 4px solid #c61f26;
 }
 
 #textControls {
+    color: white;
     padding: 10px;
-    border: 1px solid black;
-    border-left: 2px solid black;
-    border-right: 2px solid black;
-    border-bottom: 1px solid black;
+    border: 2px solid #c61f26;
+    border-left: 4px solid #c61f26;
+    border-right: 4px solid #c61f26;
+    border-bottom: 3px solid #c61f26;
 }
 
 input {
@@ -44,7 +51,11 @@ textarea {
     align-self: center;
     align-content: center;
     resize: none;
-    border-left: 2px solid black;
-    border-right: 2px solid black;
-    border-bottom: 2px solid black;
+    border-left: 4px solid #c61f26;
+    border-right: 4px solid #c61f26;
+    border-bottom: 4px solid #c61f26;
+}
+
+a {
+    color: white;
 }
