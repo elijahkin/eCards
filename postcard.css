@@ -36,6 +36,10 @@ input {
     float: right;
 }
 
+select {
+    float: right;
+}
+
 textarea {
     align-self: center;
     align-content: center;
