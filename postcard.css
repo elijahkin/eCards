@@ -1,4 +1,5 @@
 canvas {
+    white-space: pre-wrap;
     border: 1px solid black;
     border-left: 2px solid black;
     border-right: 2px solid black;
@@ -28,9 +29,18 @@ h1 {
     border: 1px solid black;
     border-left: 2px solid black;
     border-right: 2px solid black;
-    border-bottom: 2px solid black;
+    border-bottom: 1px solid black;
 }
 
 input {
     float: right;
+}
+
+textarea {
+    align-self: center;
+    align-content: center;
+    resize: none;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
 }

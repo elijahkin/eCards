@@ -16,7 +16,7 @@ function updateCanvas() {
     // setting text color and size
     ctx.fillStyle = textColor.value;
     ctx.font = textSize.value + "px Arial";
-    ctx.fillText(text.value, 10, 50);
+    fillText(ctx, text.value, parseInt(textSize.value), 1.67*parseInt(textSize.value));
 }
 
 function clearCanvas() {
@@ -24,3 +24,12 @@ function clearCanvas() {
     var ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
+
+function fillText(ctx, text, x, y) {
+    var lineHeight = ctx.measureText("M").width * 1.2;
+    var lines = text.split("\n");
+    for (var i = 0; i < lines.length; ++i) {
+      ctx.fillText(lines[i], x, y);
+      y += lineHeight;
+    }
+  }
